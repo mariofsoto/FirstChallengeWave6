@@ -10,7 +10,7 @@ fun main() {
     // Ej 2: ¿Puede cambiar el tipo de vehículo en el tiempo? ¿Debe definirse como variable o como constante en Vehicle?
     // No puede cambiar en el tiempo por lo tanto asignamos un val porque una placa va a corresponder siempre al mismo vehiculo
 
-    // Ej 3: ¿Dónde deben agregarse las propiedades, en ParkingSpace, Vehicle o en ambos?
+    // Ej 3: ¿Dónde deben agregarse las propiedades en ParkingSpace, Vehicle o en ambos?
     // en Vehicle
     // ¿Cómo indicamos que un tipo de datos puede adquirir esta característica en Kotlin?
     // Agregamos un signo de interrogación al final del tipo de variable
@@ -36,29 +36,33 @@ fun main() {
     val bus7 = Vehicle("DA423CZ", VehicleType.BUS, Calendar.getInstance(), "DISCOUNT_CARD_002")
 
 
-    // Now we add the vehicles to the parking list
+    // Here we initialized the parking set with an empty set
     val parking = Parking(
-        mutableSetOf(
-            car,
-            moto,
-            minibus,
-            bus,
-            bus2,
-            moto2,
-            minibus2,
-            bus3,
-            moto3,
-            minibus3,
-            bus4,
-            moto4,
-            minibus4,
-            bus5,
-            moto5,
-            minibus5,
-            bus6,
-            bus7
-        )
+        mutableSetOf()
     )
+
+    // Now we created a vehicle list and we added to the parking
+    val vehicleList: List<Vehicle> = listOf(
+        car,
+        moto,
+        minibus,
+        bus,
+        bus2,
+        moto2,
+        minibus2,
+        bus3,
+        moto3,
+        minibus3,
+        bus4,
+        moto4,
+        minibus4,
+        bus5,
+        moto5,
+        minibus5,
+        bus6,
+        bus7
+    )
+    vehicleList.forEach { parking.addVehicle(it) }
 
     // We created a second car with an existing plate to check that it won't be added
     val car2 = Vehicle("AA111AA", VehicleType.CAR, Calendar.getInstance(), "DISCOUNT_CARD_001")
